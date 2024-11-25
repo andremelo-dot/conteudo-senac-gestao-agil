@@ -1,0 +1,105 @@
+.header {
+  position: relative;
+  overflow: hidden;
+
+  & .content-grid {
+    container: header-grid;
+    container-type: inline-size;
+    &::before {
+      content: '';
+      position: absolute;
+      background: transparent linear-gradient(180deg, #FFFFFF 0%, #95EBFF 27%, #3DB8F9 58%, #0024A8 100%) 0% 0% no-repeat padding-box;
+      height: 100%;
+      width: 100vw;
+      transform: skew(var(--skew)) translate(-100%, -50%);
+      display: block;
+      transform-origin: top;
+      left: 0;
+      top: 50%;
+    }
+  }
+
+  &__image {
+    width: max-content;
+    max-width: 100%;
+  }
+
+  &__text {
+    * {
+      margin-top: unset;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    position: relative;
+  
+    & .content-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: min(520px, 50vw) min(900px, 70vw);
+      align-items: end;
+  
+      &::before {
+        transform: skew(var(--skew)) translate(-100%, -50%);
+        transform-origin: top;
+        left: max(0px, calc(767px - 95vw));
+        top: 50%;
+      }
+    }
+  
+    .header__image {
+      transform: translateX(-14%);
+    }
+  
+    &__text {
+      order: -1;
+      width: 100%;
+      padding-left: 40px;
+      height: calc(100% - min(15vw, 180px));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  main {
+    overflow: hidden;
+  }
+  .header .content-grid {
+    grid-template-columns: min(520px, 38vw) min(900px, 70vw);
+    &::before {
+      left: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header {
+
+    br {
+      display: none;
+    }
+    & .content-grid {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &::before {
+        transform: skew(-12deg) translate(0%, -50%);
+        left: calc(-50% - 200px);
+      }
+    }
+    &__text {
+      max-width: 360px;
+    }
+    &__image {
+      width: max-content;
+      max-width: unset;
+    }
+  }
+}

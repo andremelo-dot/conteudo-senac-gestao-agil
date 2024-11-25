@@ -1,0 +1,68 @@
+.featured {
+  &-download {
+    .featured__content {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: 140px auto auto;
+      gap: 24px;
+    }
+    img {
+      flex: none;
+      width: auto;
+    }
+    .educacional__button {
+      text-decoration: none;
+    }
+  }
+
+  &__title {
+    margin-top: unset;
+    &+p {
+      margin-top: 1rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding: var(--element-spacing);
+    padding-block: 48px;
+  }
+  &__content::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    max-width: calc(100% - 20px);
+    min-width: 360px;
+    height: 100%;
+    transform: skew(var(--skew)) translate(-50%, -50%);
+    transform-origin: top;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+  }
+  &:not(.featured-download) &__content::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    top: 0;
+    right: 0;
+    background: var(--bg-linear-gradient-double);
+    background-position: top, bottom;
+    background-size: 100% 50%, 100% 50%;
+    background-repeat: no-repeat;
+    transform: skew(var(--skew)) translate(0, -50%);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .featured-download {
+    .featured__content {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+  }
+}

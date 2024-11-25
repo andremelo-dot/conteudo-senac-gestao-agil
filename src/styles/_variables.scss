@@ -1,0 +1,192 @@
+@use 'sass:math';
+
+// FUNÇÃO PARA CALCULAR PX PARA REM
+@function px-to-rem($px-value, $base-font-size: 16px) {
+  // @return $px-value / $base-font-size * 1rem;
+  @return math.div($px-value, $base-font-size) * 1rem;
+}
+
+@mixin apply-heading-styles($font-sizes) {
+  @each $key, $values in $font-sizes {
+    $font-size: math.div(nth($values, 1), 16);
+    $line-height: math.div(nth($values, 2), 16);
+
+    h#{$key} {
+      font-size: #{px-to-rem($font-size * 16)};
+      line-height: #{px-to-rem($line-height * 16)};
+      margin-top: var(--element-spacing);
+      font-weight: bold;
+    }
+    :root {
+      --h#{$key}-fs: #{px-to-rem($font-size * 16)};
+      --h#{$key}-lh: #{px-to-rem($line-height * 16)};
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  $font-sizes: (
+    1: (64px,72px),
+    2: (56px,64px),
+    3: (48px,56px),
+    4: (40px,48px),
+    5: (32px,40px),
+    6: (24px,32px),
+  );
+
+  @include apply-heading-styles($font-sizes);
+}
+
+@media (max-width: 1023px) {
+  $font-sizes: (
+    1: (40px,48px),
+    2: (32px,40px),
+    3: (28px,36px),
+    4: (24px,42px),
+    5: (22px,28px),
+    6: (18px,26px),
+  );
+  @include apply-heading-styles($font-sizes);
+}
+
+:root {
+  --section-spacing: 64px; //espaço entre recursos
+  --element-spacing: 40px; //espaço entre texto + imagens
+  --paragraph-spacing: 24px; //espaço entre parágrafos
+  --skew: -10deg;
+  --anti-skew: 10deg;
+
+  // --html-conversion: 62.5%;
+  --font-family: 'Alegreya Sans', Arial, sans-serif;
+  --paragraph-size: #{px-to-rem(21px)};
+  --paragraph-lh: #{px-to-rem(29px)};
+  --content-grid-width: 1024px;
+  --padding-inline: 16px;
+  --white: #fff;
+  --linear-to-left: linear-gradient(270deg, #FFFFFF00 2%, #FFFFFF68 16%, #95EBFF 41%, #3DB8F9 60%, #1B74D8 82%, #0024A8 100%) top/100% 50% no-repeat padding-box;
+  --linear-to-right: linear-gradient(90deg, #FFFFFF00 0%, #FFFFFF68 16%, #95EBFF 41%, #3DB8F9 60%, #1B74D8 82%, #0024A8 98%) bottom/100% 50% no-repeat padding-box;
+  --bg-linear-gradient-double: var(--linear-to-left), var(--linear-to-right);
+  --bg-linear-gradient: transparent linear-gradient(180deg, #FFFFFF 0%, #95EBFF 27%, #3DB8F9 58%, #0024A8 100%) 0% 0% no-repeat padding-box;
+  --feedback-correct: #fff;
+  --feedback-first-try: #fff;
+  --feedback-incorrect: #fff;
+
+  --menu-heading-arrow: url(/assets/images/menu/menu-head-arrow.svg) center no-repeat;
+
+  // Configuração dos botões de navegação do Swiper:
+  // Ajuste a largura (width) e a altura (height) de acordo com o guia de estilos.
+  // Atualize a propriedade background para corresponder ao estilo do botão.
+  // Se houver diferentes tipos de botões, modifique diretamente no componente,
+  // usando a propriedade de background --swiper-actions.
+
+  // Nota importante:
+  // Utilizamos o mesmo botão e o invertimos no swiper-prev usando scaleX(-1).
+  // Verifique essas configurações no componente.
+  --swiper-actions: url(/assets/images/wireframe/wireframe-swiper-actions.svg) center/cover no-repeat;
+  --swiper-actions-width: 40px;
+  --swiper-actions-height: 40px;
+
+  // Configuração dos botões do Plyr:
+  // Ajuste a largura (width) e a altura (height) de acordo com o guia de estilos.
+  // Atualize a propriedade background para corresponder ao estilo do botão.
+  // Se houver diferentes tipos de botões, modifique diretamente no componente.
+
+  // Nota importante:
+  // Em alguns casos, os botões podem diferir entre áudio e vídeo.
+  // Além disso, a cor do thumb/progress pode variar entre áudio e vídeo.
+  // Consulte o guia de estilos e faça as alterações necessárias na pasta 'midia', no arquivo .scss correspondente ao componente.
+
+  // AUDIO
+  // --plyr-control-audio-play-background: url(/assets/images/plyr/plyr-audio-play.svg) center/cover no-repeat;
+  --plyr-control-audio-play-width: 40px;
+  --plyr-control-audio-play-height: 40px;
+  // --plyr-control-audio-volume-background: url(/assets/images/plyr/plyr-audio-volume.svg) center/cover no-repeat;
+  --plyr-control-audio-volume-width: 40px;
+  --plyr-control-audio-volume-height: 40px;
+
+  //VIDEO
+  // --plyr-control-video-play-background: url(/assets/images/plyr/plyr-play.svg) center / cover no-repeat;
+  --plyr-control-video-play-width: 60px;
+  --plyr-control-video-play-height: 60px;
+  // --plyr-control-video-volume-background: url(/assets/images/plyr/plyr-volume.svg) center / cover no-repeat;
+  --plyr-control-video-volume-width: 60px;
+  --plyr-control-video-volume-height: 60px;
+  // --plyr-control-video-fullscreen-background: url(/assets/images/plyr/plyr-fullscreen-1.svg) center / cover no-repeat;
+  --plyr-control-video-fullscreen-width: 60px;
+  --plyr-control-video-fullscreen-height: 60px;
+  // --plyr-overlaid-play-background: url(/assets/images/plyr/plyr-overlaid.svg) center / contain no-repeat;
+  --plyr-overlaid-play-width: 96px;
+  --plyr-overlaid-play-height: 128px;
+  --plyr-overlaid-border-radius: 0;
+
+  --media-button-hover-bg: var(--secondary-color-2);
+  --media-slider-track-border-radius: 0;
+  --media-slider-track-bg: var(--primary-color-1);
+  --media-slider-track-fill-bg: #76b900;
+
+  /* Cores Primárias */
+  --primary-color-1: #0024A9;
+  --primary-color-2: #0041D9;
+  --primary-color-3: #3B4AFF;
+
+  /* Cores Secundárias */
+  --secondary-color-1: #CD5BE8;
+  --secondary-color-2: #9285F9;
+  --secondary-color-3: #40BBFF;
+
+  --disabled-color: #C2C2C2;
+
+  --lists-color: var(--primary-color-3);
+
+  /* Atualização dos Elementos */
+  --menu-background: var(--disabled-color);
+
+  --accordion-title-background: var(--secondary-color-1);
+  --accordion-title-active-background: var(--primary-color-2);
+  --accordion-title-viewed-background: var(--primary-color-1);
+  --accordion-title-color: #fff;
+  --accordion-title-active-color: #fff;
+  --accordion-title-viewed-color: #fff;
+  --accordion-content-background: var(--primary-color-2);
+  --accordion-content-color: #fff;
+
+  --card-front-background: var(--primary-color-1);
+  --card-title-background: var(--secondary-color-2);
+  --card-title-color: #ffffff;
+  --card-button-background: var(--primary-color-1);
+  --card-back-background: var(--primary-color-3);
+  --card-background-color: #fff;
+
+  --slider-slide-background: unset;
+  --slider-content-background: unset;
+
+  --tab-link-background: var(--secondary-color-1);
+  --tab-link-color: #fff;
+  --tab-link-background-active: var(--primary-color-3);
+  --tab-link-color-active: #fff;
+  --tab-link-background-viewed: var(--primary-color-2);
+  --tab-link-color-viewed: #fff;
+  --tab-link-fs: px-to-rem(24px);
+  --tab-link-lh: px-to-rem(32px);
+  --tab-link-ff: 'Campuni', sans-serif;
+  --tab-content-background: var(--primary-color-3);
+  --tab-content-color: #fff;
+
+  --drop-background: var(--primary-color-2);
+  --drop-title-color: var(--tertiary-color-3);
+  --drop-content-background: var(--primary-color-1);
+  --drop-content-color: var(--secondary-color-4);
+  --drop-button-background: var(--primary-color-3);
+}
+
+@media screen and (max-width: 1023px) {
+  :root {
+    --skew: -5deg;
+    --anti-skew: 5deg;
+    --section-spacing: 40px; //espaço entre recursos
+    --element-spacing: 28px; //espaço entre texto + imagens
+    --paragraph-spacing: 12px; //espaço entre parágrafos
+    --paragraph-size: #{px-to-rem(18px)};
+    --paragraph-lh: #{px-to-rem(26px)};
+  }
+}
