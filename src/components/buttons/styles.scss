@@ -13,10 +13,10 @@ $header-button-line-height: 40px;
   --button-color: var(--white);
   --button-border: unset;
   --button-padding: 8px 20px;
-  --button-text-transform: uppercase;
-  --button-arrow: url(/assets/images/wireframe/wireframe-button-arrow.svg);
-  --button-arrow-width: 25px;
-  --button-arrow-height: 17px;
+  --button-text-transform: unset;
+  --button-arrow: url(/assets/images/wireframe/arrow-down-white.svg);
+  --button-arrow-width: 18px;
+  --button-arrow-height: 9px;
   --button-icon: url(/assets/images/wireframe/wireframe-button-icon.svg);
   --button-icon-width: 23px;
   --button-icon-height: 26px;
@@ -30,12 +30,13 @@ $header-button-line-height: 40px;
   font-size: px-to-rem($primary-font-size);
   line-height: px-to-rem($primary-line-height);
   text-transform: var(--button-text-transform);
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: var(--button-gap);
 
   &:hover {
-    --button-background: var(--primary-color-1);
+    --button-background: var(--primary-color-2);
     --button-color: var(--white);
   }
 
@@ -53,14 +54,15 @@ $header-button-line-height: 40px;
     }
 
     &:hover {
+      color: var(--secondary-color-3);
       &::after {
-        background: var(--secondary-color-1);
+        background: var(--secondary-color-3);
       }
     }
 
     &::after {
       content: '';
-      background: var(--white);
+      background: var(--secondary-color-1);
       mask-image: var(--button-arrow);
       mask-size: cover;
       mask-repeat: no-repeat;
@@ -72,8 +74,9 @@ $header-button-line-height: 40px;
 
   &.primary-icon {
     &:hover {
+      color: var(--secondary-color-3);
       &::after {
-        background: var(--secondary);
+        background: var(--secondary-color-3);
       }
     }
 
@@ -91,11 +94,11 @@ $header-button-line-height: 40px;
 }
 
 .secondary {
-  --button-background: var(--secondary-color-1);
+  --button-background: var(--primary-color-1);
   --button-color: var(--white);
   --button-border: unset;
   --button-padding: 8px 20px;
-  --button-text-transform: uppercase;
+  --button-text-transform: unset;
   --button-radius: 0;
 
   background: var(--button-background);
@@ -123,7 +126,7 @@ $header-button-line-height: 40px;
     pointer-events: none;
     opacity: 0.4;
     --button-background: var(--disabled-color);
-    --button-color: #F2F2F2;
+    --button-color: var(--secondary-color-3);
   }
 }
 
@@ -190,7 +193,7 @@ button {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   $primary-font-size: 20px;
   $primary-line-height: 28px;
 

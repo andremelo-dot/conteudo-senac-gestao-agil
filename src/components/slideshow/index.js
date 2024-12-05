@@ -7,10 +7,11 @@ import 'swiper/css/bundle';
 // import './styles.scss';
 
 function __handleChange(e) {
-  if ($(window).width() < 1024) {
+  if ($(window).width() < 817) {
     let target = e.target ? e.target : e.el;
-    let targetScroll = $(target).hasClass('swiper') ? $(target).find('.swiper-slide')
-    : ($(target).closest('.swiper:has(picture)').length > 0 ? $(target).closest('.swiper:has(picture)') : $(target).closest('.swiper').find('.swiper-slide'));
+    // let targetScroll = $(target).hasClass('swiper') ? $(target).find('.swiper-slide')
+    // : ($(target).closest('.swiper:has(picture)').length > 0 ? $(target).closest('.swiper:has(picture)') : $(target).closest('.swiper').find('.swiper-slide'));
+    let targetScroll = $(target).closest('.content-grid');
     if ( targetScroll ) handleScrollTo(targetScroll);
   }
 }
@@ -88,10 +89,10 @@ export const setSlideshow = function () {
           0: {
             slidesPerView: 1,
           },
-          767: {
+          600: {
             slidesPerView: attrs.type === 'card' ? 2 : 1,
           },
-          1024: {
+          740: {
             slidesPerView: attrs.slidesPerView || 1,
           },
         },

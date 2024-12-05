@@ -1,7 +1,7 @@
 .tab-ver-text {
   --tab-ver-row-height: 75px;
   --tab-columns: 333px 1fr;
-  --tab-gap: 8px;
+  --tab-gap: 0px;
   --tab-link-padding: 10px 14px;
   --tab-content-border: 0;
   --tab-content-margin-top: 0;
@@ -23,14 +23,13 @@
     align-items: center;
     justify-content: center;
     border: var( --tab-link-border);
+
     font-weight: bold;
 
     background: var(--tab-link-background);
     color: var(--tab-link-color);
     padding: var(--tab-link-padding);
     text-align: center;
-    // font-size: px-to-rem($p-font-size);
-    // line-height: px-to-rem($p-line-height);
     text-decoration: none;
 
     cursor: pointer;
@@ -38,6 +37,12 @@
     &.is-active {
       background: var(--tab-link-background-active);
       color: var(--tab-link-color-active);
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,.3));
+      z-index: 1;
+    }
+
+    &:not(.is-active, :last-of-type) {
+      border-bottom: 2px solid var(--terciary-color-1);
     }
 
     &.clicked:not(.is-active) {
@@ -51,13 +56,14 @@
     grid-column: 2;
     grid-row: 1 / -1;
     padding: var(--tab-content-padding);
+    box-shadow: -2px 0px 8px rgba(0,0,0,.3);
+    z-index: 1;
 
     background: var(--tab-content-background);
-    color: #fff;
+    color: var(--tab-content-color);
     border: var(--tab-content-border);
     margin-top: var(--tab-content-margin-top);
     animation: 0.2s slideOutTop ease-in;
-    z-index: -1;
     opacity: 0;
     display: flex;
     align-items: center;
@@ -69,7 +75,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   .tab-ver-text {
     --tab-link-padding: 8px 16px;
     --tab-content-padding: 8px 16px;
@@ -78,12 +84,21 @@
     display: flex;
     flex-direction: column;
 
+
     &__link {
       grid-template-rows: unset;
       transition: unset;
+      border: 2px solid #ACACAC;
+      filter: unset;
+
+      +& {
+        margin-top: 8px;
+      }
 
       &.is-active {
         width: 100%;
+        border: 2px solid #B0FF92;
+        filter: unset;
       }
 
       &[data-nav-id='1'],
@@ -101,6 +116,9 @@
       grid-row: unset;
       position: relative;
       inset: unset;
+      filter: unset;
+      box-shadow: unset;
+      box-shadow: 0px 6px 8px rgba(0,0,0,.3);
 
       &.is-active {
         display: flex;

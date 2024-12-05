@@ -13,6 +13,7 @@
   .swiper-slide {
     display: var(--slider-slide-display);
     flex-direction: var(--slider-slide-direction);
+    gap: var(--slider-nav-margin-top);
 
     picture {
       flex-shrink: 0;
@@ -40,6 +41,7 @@
     margin-top: unset;
     margin-inline: auto;
     position: relative;
+    transform: translateX(var(--slider-nav-margin-top));
 
     .slider-image-left__pagination {
       width: 100%;
@@ -59,10 +61,14 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   .slider-image-left {
     --slider-slide-display: block;
     --slider-content-padding: 0;
     --slider-content-text-align: center;
+
+    &__nav {
+      transform: unset;
+    }
   }
 }

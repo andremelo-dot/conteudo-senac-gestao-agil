@@ -2,7 +2,7 @@
 .video {
   // CONFIG VIDEO
   // PLYR VIDEO  CONFIGS
-  --plyr-video-controls-background: var(--primary-color-2);
+  --plyr-video-controls-background: var(--primary-color-3);
   --plyr-video-control-color: #ffffff;
   --plyr-video-progress-buffered-background: #ffffff;
 
@@ -10,20 +10,25 @@
   --plyr-font-size-menu: var(--paragraph-size);
   --plyr-font-size-time: var(--paragraph-size);
 
-  --plyr-video-control-background-hover: var(--secondary-color-3);
+  --plyr-video-control-background-hover: var(--primary-color-1);
   --plyr-menu-color: #fff;
   --plyr-menu-background: var(--primary-color-3);
   --plyr-range-track-height: 8px;
-  --plyr-range-fill-background: var(--secondary-color-1);
+  --plyr-range-fill-background: var(--primary-color-1);
   --plyr-range-thumb-background: transparent;
   --plyr-range-thumb-shadow: 0px;
   // --plyr-control-spacing: 16px;
   --plyr-timer-color: var(--wireframe-text-color);
 
   &__transcription {
+
+    &:has([data-cannot-exist]) {
+      display: none;
+    }
+    
     margin-top: 16px;
     padding: 16px;
-    border: 2px solid var(--secondary-color-1);
+    border: 2px solid var(--primary-color-3);
 
     .video__content {
       height: 200px;
@@ -40,7 +45,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   .plyr {
     --plyr-control-video-play-width: 32px;
     --plyr-control-video-play-height: 32px;

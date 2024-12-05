@@ -6,7 +6,7 @@ import { setAnimations } from '@components/animations';
 import { setTabs } from '@components/tabs';
 import { setCard } from '@components/card';
 import { setTooltip } from '@components/tooltip';
-import { setMedias, setCustomPlyr } from '@components/medias';
+import { setMedias, setCustomPlyr, handlePodcastSubtitles } from '@components/medias';
 import { setInteractive } from '@components/interactive';
 import { setPanel } from '@components/panel';
 import { setDropContent } from '@components/drop-content';
@@ -23,6 +23,7 @@ import { setQuestionAssociative } from '@components/question-associative';
 import { setQuestionDragAndDrop } from '@components/question-drag-and-drop';
 import { setVideoViewQuestion } from '@components/question-video-view';
 import { handleMenu, handleMenuNav } from '@components/menu';
+import { setTimelineCustom } from '@components/timeline-custom';
 
 // Inicialização dos componentes.
 const init = () => {
@@ -56,6 +57,8 @@ const init = () => {
   setQuestionAssociative();
   setQuestionDragAndDrop();
   setVideoViewQuestion();
+  handlePodcastSubtitles();
+  setTimelineCustom();
 
   checkScormRule();
 };

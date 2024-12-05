@@ -9,13 +9,19 @@ body {
   line-height: var(--paragraph-lh);
   font-family: var(--font-family);
   background: #fff;
-  color: #000;
+  color: #5C2D25;
 }
 
-footer img {
-  width: auto;
-  display: block;
-  margin-inline: auto;
+footer {
+  height: 90px;
+  overflow: hidden;
+  background: var(--primary-color-1);
+  position: relative;
+  img {
+    position: absolute;
+    transform: translate(20%, -15%);
+    right: 0;
+  }
 }
 
 p,
@@ -24,28 +30,26 @@ li {
   line-height: var(--paragraph-lh);
 }
 
+.link {
+  color: var(currentColor, --primary-color-3);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Campuni', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--secondary-color-3)
 }
 
-h1 {
+h1,h2,h3,h4,h5 {
   font-weight: 900;
 }
 
-h2,
-h3,
-h5,
 h6 {
   font-weight: bold;
-}
-
-h4 {
-  font-weight: 500;
 }
 
 .content-grid {
@@ -73,21 +77,21 @@ h4 {
   margin-top: var(--paragraph-spacing);
 }
 
-h1 {
-  color: var(--primary-color-1)
-}
+// h1 {
+//   color: var(--primary-color-1)
+// }
 
-h2 {
-  color: var(--secondary-color-3)
-}
+// h2 {
+//   color: var(--secondary-color-3)
+// }
 
-h3 {
-  color: var(--primary-color-2)
-}
+// h3 {
+//   color: var(--primary-color-2)
+// }
 
-h4 {
-  color: var(--primary-color-3)
-}
+// h4 {
+//   color: var(--primary-color-3)
+// }
 
 img {    
   display: block;
@@ -118,7 +122,7 @@ button {
 }
 
 .list-bullet {
-  --list-bullet-width: min(9px, 1ch);
+  --list-bullet-width: min(8px, 1ch);
   li {
     margin-left: var(--paragraph-size);
   }
@@ -129,7 +133,7 @@ button {
     height: auto;
     aspect-ratio: 1/1;
     background: var(--lists-color);
-    transform: skew(-12deg);
+    border-radius: 2px;
     margin-right: 1ch;
   }
   ul {
@@ -274,7 +278,7 @@ SCROLL AREA
   padding-bottom: 16px;
   container-name: content-scroll-x;
   container-type: inline-size;
-  --scroll-thumb-color: var(--secondary-color-1);
+  --scroll-thumb-color: var(--primary-color-3);
 
   &:not(.align-center) img {
     margin-inline: unset;
@@ -287,7 +291,7 @@ SCROLL AREA
 
   /* Track */
   &::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom, #fff 0px 4px, var(--primary-color-2) 4px 12px, #fff 12px 16px );
+    background: linear-gradient(to bottom, #fff 0px 4px, var(--terciary-color-1) 4px 12px, #fff 12px 16px );
     padding: 2px;
   }
 
@@ -425,7 +429,7 @@ SCROLL AREA
 
 /*******************************************/
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 740px) {
   :where([class^=img-max-],
   [class^=img-min-],
   [class^=ico-max-],

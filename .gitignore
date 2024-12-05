@@ -1,4 +1,5 @@
 node_modules
 dist/course
+temp/
 .vscode/*
 *.zip

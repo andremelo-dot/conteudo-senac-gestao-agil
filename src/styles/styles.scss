@@ -19,9 +19,8 @@
 
 // @import '@components/medias/video/video'; // Vídeo
 
-@import '@components/medias/audio/podcast-01'; // Podcast 01
+@import '@components/medias/audio/podcast'; // Podcast 01
 @import '@components/medias/audio/podcast-02'; // Podcast 02
-@import '@components/medias/audio/podcast-03'; // Podcast 03
 
 @import '@components/menu/styles';
 @import '@components/menu/menu-01'; // menu fixo 01
@@ -45,6 +44,7 @@
 @import '@components/statics/ico-left-text'; // icone esquerda texto lado
 @import '@components/statics/ico-right-text'; // icone direita texto lado
 @import '@components/statics/featured'; // destaque
+@import '@components/statics/download'; // download
 
 // TABELA
 @import '@components/table/table';
@@ -76,6 +76,8 @@
 @import '@components/drop-content/drop-content-left'; // drop content left
 @import '@components/drop-content/drop-content-right'; // drop content right
 
+@import '@components/timeline-custom/styles';
+
 // ATIVIDADES
 @import '@components/questions/styles.scss';
 @import '@components/questions/feedback-styles.scss';
@@ -88,6 +90,7 @@
 @import '@components/question-associative/styles.scss';
 
 @import '@components/educationals/styles.scss';
+@import '@components/educationals/various.scss';
 @import '@components/educationals/educational-01.scss';
 @import '@components/educationals/educational-02.scss';
 @import '@components/educationals/educational-03.scss';

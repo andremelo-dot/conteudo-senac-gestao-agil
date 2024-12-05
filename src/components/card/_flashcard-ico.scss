@@ -12,7 +12,8 @@
   --card-text-align: center;
 
   --card-button-min-height: 40px;
-  --card-button-icon: url(/assets/images/wireframe/wireframe-card-arrow.svg) center/cover no-repeat;
+  --card-button-icon: url(/assets/images/wireframe/ico-plus.svg);
+  --card-button-icon-opened: url(/assets/images/wireframe/ico-minus.svg);
   --card-button-icon-width: 24px;
   --card-button-icon-height: 8px;
 
@@ -49,7 +50,7 @@
 
   &__front {
     max-width: var(--card-max-width);
-    height: var(--card-front-height);
+    height: calc(var(--card-min-height) - (var(--card-button-min-height) / 2));
     background: var(--card-front-background);
     position: relative;
     display: flex;
@@ -77,8 +78,9 @@
 
   &__back {
     background: var(--card-back-background);
-    width: var(--card-max-width);
-    height: var(--card-min-height);
+    color: var(--card-background-color);
+    width: 100%;
+    height: calc(var(--card-front-height) - (var(--card-button-min-height) / 2));
     padding: var(--card-back-padding);
     text-align: var(--card-back-text-align);
     position: absolute;
@@ -86,29 +88,38 @@
     left: 0;
     z-index: 2;
     transition: transform 300ms ease;
-    transform: translateY(100%);
+    transform: translateY(calc(100% + (var(--card-button-min-height) / 2)));
   }
 
   &__button {
-    border: var(--card-button-border);
-    border-radius: var(--card-button-radius);
-    width: 100%;
+    border: none;
+    width: auto;
+    aspect-ratio: 1/1;
     background: var(--card-button-background);
     min-height: var(--card-button-min-height);
+    border: 2px solid var(--primary-color-3);
     position: absolute;
+    // top: calc((var(--card-min-height) - var(--card-title-height)) - (var(--card-button-min-height) / 2));
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0%);
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .3s;
 
     &::before {
       content: '';
-      background: var(--card-button-icon);
       width: var(--card-button-icon-width);
       height: var(--card-button-icon-height);
+      background: var(--primary-color-3);
+      mask-image: var(--card-button-icon);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      transform: rotate(0);
+      transition: .5s;
     }
   }
 

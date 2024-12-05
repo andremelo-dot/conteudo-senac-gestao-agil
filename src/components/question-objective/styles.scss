@@ -3,14 +3,14 @@
   --question-input-background: #ffffff;
   --question-input-height: 32px;
   --question-input-radius: 50%;
-  --question-input-border: 3px solid var(--primary-color-2);
-  --question-input-checked-background: var(--primary-color-2);
+  --question-input-border: 3px solid var(--primary-color-3);
+  --question-input-checked-background: var(--primary-color-3);
   --question-input-checked-width: 20px;
   --question-input-checked-height: 20px;
   --question-input-checked-radius: 50%;
 
   --question-label-color: #282828;
-  --question-label-checked-color: #000000;
+  --question-label-checked-color: var(--primary-color-3);
 
   // COR DA ALTERNATIVA PARA INCORRETA AO RESPONDER PARA VERMELHO E A RESPOSTA CORRETA PARA VERDE
   &[data-status='0'][data-progress='1'] {
@@ -83,7 +83,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   .question {
     --question-gap: 16px;
 

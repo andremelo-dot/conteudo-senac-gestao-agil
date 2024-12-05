@@ -30,7 +30,10 @@ export const setTabs = function () {
         'grid-row': `1 / span ${lengthOfContent}`,
       });
     } else {
-      $(this).css('--tab-hor-template-columns', `repeat(${lengthOfContent}, 1fr)`);
+      $(this).css({
+        '--tab-hor-template-columns': `repeat(${lengthOfContent}, 1fr)`,
+        '--tab-hod-column-length': lengthOfContent
+      });
     }
   });
 

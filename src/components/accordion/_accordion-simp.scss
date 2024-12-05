@@ -15,8 +15,11 @@
   &__item[open] {
     .accordion-simp__summary {
       background: var(--accordion-title-active-background);
+      color: var(--accordion-title-active-color);
+      box-shadow: 0px 4px 6px rgba(0,0,0,.3);
 
-      &::after {
+      &::before {
+        background-color: currentColor;
         transform: rotate(180deg);
       }
     }
@@ -25,28 +28,30 @@
   &__item.clicked:not([open]) {
     .accordion-simp__summary {
       background: var(--accordion-title-viewed-background);
-      color: #fff;
+      color: var(--accordion-title-color);
     }
   }
 
   &__summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: var(--accordion-title-gap);
     background: var(--accordion-title-background);
+    color: var(--accordion-title-color);
+    border: 2px solid var(--primary-color-3);
     font-size: var(--paragraph-size);
     line-height: var(--paragraph-lh);
     padding: var(--accordion-title-padding);
     font-weight: bold;
 
-    &::after {
+    &::before {
       content: '';
       display: inline-block;
       width: 1.5em;
       height: 1.5em;
       mask: url(/assets/images/wireframe/arrow-down.svg) center no-repeat;
-      background-color: currentColor;
+      background-color: var(--primary-color-3);
       mask-size: contain;
       flex: none;
       transition: .3s;
@@ -63,7 +68,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   .accordion-simp {
     --accordion-gap: 8px;
     --accordion-title-padding: 8px 16px;

@@ -49,7 +49,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--slider-content-background);
+    background: var(--primary-color-3);
+    color: #fff;
     padding: var(--slider-content-padding);
     text-align: var(--slider-content-text-align);
   }
@@ -59,7 +60,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: var(--slider-nav-max-width);
-    margin-top: unset;
+    margin-top: 32px;
     margin-inline: auto;
     position: relative;
 
@@ -81,7 +82,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 740px) {
   .content-grid:has(.carrossel-image-top) {
     --slide-carrossel-gap: 0;
 
